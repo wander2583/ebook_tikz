@@ -1,6 +1,95 @@
-\documentclass{article}
+\documentclass[12pt,oneside]{book}
+
+% --- Pacotes essenciais ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english,brazil]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{pdfpages}
+
+% --- Geometria da página ---
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2.5cm
+}
+
+% --- Estilo da página ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% --- Espaçamento entre linhas ---
+\onehalfspacing
+
+% --- Hiperlink ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    pdftitle={Aprendizado sobre o TikZ},
+    pdfauthor={Wanderlei Rodrigo Pereira},
+    pdfsubject={TikZ para LaTeX},
+    pdfkeywords={TikZ, LaTeX, Gráficos, Ebook, Técnicas, Diagramas}
+}
+
+% --- Capa personalizada com imagem ---
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{
+    \put(0,0){
+        \parbox[b][\paperheight]{\paperwidth}{
+            \vfill
+            \centering
+            \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{capa.jpg}
+            \vfill
+        }
+    }
+}
 
 \begin{document}
-  Teste de inicio!!! \\
-  Funciona\dots
+
+% --- Página de Capa ---
+\begin{titlepage}
+\AddToShipoutPicture*{\BackgroundPic}
+\vspace*{15cm}
+\begin{center}
+    {\Huge\bfseries\textcolor{white}{Aprendizado sobre o TikZ}}\\[1cm]
+    {\Large\textcolor{white}{Wanderlei Rodrigo Pereira}}
+\end{center}
+\end{titlepage}
+
+% --- Página em branco após capa ---
+\cleardoublepage
+\thispagestyle{empty}
+\null
+\cleardoublepage
+
+% --- Sumário ---
+\tableofcontents
+\cleardoublepage
+
+% --- Capítulos de exemplo ---
+\chapter{Introdução}
+O TikZ é uma ferramenta poderosa para criação de gráficos vetoriais no LaTeX...
+
+\chapter{Conceitos Básicos}
+Explicação dos comandos fundamentais...
+
+\chapter{Exemplos Práticos}
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (2,0);
+    \draw[->] (0,0) -- (0,2);
+    \node at (1,1) {Exemplo};
+\end{tikzpicture}
+
+% --- Final ---
 \end{document}
